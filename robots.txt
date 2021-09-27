@@ -1,1 +1,1 @@
-Sitemap: https://ronaldo.tech/sitemap.xml
+Sitemap: https://ronaldo.tech/ronaldo.tech/sitemap.xml
