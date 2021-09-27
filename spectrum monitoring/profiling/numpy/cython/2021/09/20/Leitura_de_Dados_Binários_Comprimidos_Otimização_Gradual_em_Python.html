@@ -9,16 +9,16 @@
 <meta property="og:title" content="Leitura de dados binários comprimidos - um exemplo de otimização gradual em Python" />
 <meta name="author" content="Ronaldo S.A. Batista" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="O hábito que faz o monge… e todos nós." />
-<meta property="og:description" content="O hábito que faz o monge… e todos nós." />
+<meta name="description" content="As atividades de monitoramento do espectro de radiofrequência na ANATEL, especificamente aquelas que utilizam estações remotas de monitoramento, geram centenas de GB de dados. Um dos primeiros desafios para a utilização mais eficiente desses dados é a sua leitura eficiente. Nesse artigo é detalhada as iterações realizadas para resolver esse problema, primeiramente tornar essa leitura viável e posteriormente os passos de otimização aplicados no algoritmo para decodificar os dados de arquivos comprimidos" />
+<meta property="og:description" content="As atividades de monitoramento do espectro de radiofrequência na ANATEL, especificamente aquelas que utilizam estações remotas de monitoramento, geram centenas de GB de dados. Um dos primeiros desafios para a utilização mais eficiente desses dados é a sua leitura eficiente. Nesse artigo é detalhada as iterações realizadas para resolver esse problema, primeiramente tornar essa leitura viável e posteriormente os passos de otimização aplicados no algoritmo para decodificar os dados de arquivos comprimidos" />
 <link rel="canonical" href="https://ronaldo.tech/spectrum%20monitoring/profiling/numpy/cython/2021/09/20/Leitura_de_Dados_Bin%C3%A1rios_Comprimidos_Otimiza%C3%A7%C3%A3o_Gradual_em_Python.html" />
 <meta property="og:url" content="https://ronaldo.tech/spectrum%20monitoring/profiling/numpy/cython/2021/09/20/Leitura_de_Dados_Bin%C3%A1rios_Comprimidos_Otimiza%C3%A7%C3%A3o_Gradual_em_Python.html" />
 <meta property="og:site_name" content="ronaldo.tech" />
-<meta property="og:image" content="https://ronaldo.tech/images/devil.jpg" />
+<meta property="og:image" content="https://ronaldo.tech/images/devil.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-09-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"O hábito que faz o monge… e todos nós.","url":"https://ronaldo.tech/spectrum%20monitoring/profiling/numpy/cython/2021/09/20/Leitura_de_Dados_Bin%C3%A1rios_Comprimidos_Otimiza%C3%A7%C3%A3o_Gradual_em_Python.html","@type":"BlogPosting","headline":"Leitura de dados binários comprimidos - um exemplo de otimização gradual em Python","dateModified":"2021-09-20T00:00:00-05:00","datePublished":"2021-09-20T00:00:00-05:00","author":{"@type":"Person","name":"Ronaldo S.A. Batista"},"image":"https://ronaldo.tech/images/devil.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://ronaldo.tech/spectrum%20monitoring/profiling/numpy/cython/2021/09/20/Leitura_de_Dados_Bin%C3%A1rios_Comprimidos_Otimiza%C3%A7%C3%A3o_Gradual_em_Python.html"},"@context":"https://schema.org"}</script>
+{"description":"As atividades de monitoramento do espectro de radiofrequência na ANATEL, especificamente aquelas que utilizam estações remotas de monitoramento, geram centenas de GB de dados. Um dos primeiros desafios para a utilização mais eficiente desses dados é a sua leitura eficiente. Nesse artigo é detalhada as iterações realizadas para resolver esse problema, primeiramente tornar essa leitura viável e posteriormente os passos de otimização aplicados no algoritmo para decodificar os dados de arquivos comprimidos","url":"https://ronaldo.tech/spectrum%20monitoring/profiling/numpy/cython/2021/09/20/Leitura_de_Dados_Bin%C3%A1rios_Comprimidos_Otimiza%C3%A7%C3%A3o_Gradual_em_Python.html","@type":"BlogPosting","headline":"Leitura de dados binários comprimidos - um exemplo de otimização gradual em Python","dateModified":"2021-09-20T00:00:00-05:00","datePublished":"2021-09-20T00:00:00-05:00","author":{"@type":"Person","name":"Ronaldo S.A. Batista"},"image":"https://ronaldo.tech/images/devil.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://ronaldo.tech/spectrum%20monitoring/profiling/numpy/cython/2021/09/20/Leitura_de_Dados_Bin%C3%A1rios_Comprimidos_Otimiza%C3%A7%C3%A3o_Gradual_em_Python.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ronaldo.tech/feed.xml" title="ronaldo.tech" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -104,7 +104,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Leitura de dados binários comprimidos - um exemplo de otimização gradual em Python</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-20T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Leitura de dados binários comprimidos - um exemplo de otimização gradual em Python</h1><p class="page-description">As atividades de monitoramento do espectro de radiofrequência na ANATEL, especificamente aquelas que utilizam estações remotas de monitoramento, geram centenas de GB de dados. Um dos primeiros desafios para a utilização mais eficiente desses dados é a sua leitura eficiente. Nesse artigo é detalhada as iterações realizadas para resolver esse problema, primeiramente tornar essa leitura viável e posteriormente os passos de otimização aplicados no algoritmo para decodificar os dados de arquivos comprimidos</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-20T00:00:00-05:00" itemprop="datePublished">
         Sep 20, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -179,7 +179,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/images/copied_from_nb/images/knuth.jpg" alt="" title="Crédito da Imagem: https://twitter.com/lpolovets/status/816117631572807680"></p>
+<p><img src="/images/copied_from_nb/images/knuth.png" alt="" title="Crédito da Imagem: https://twitter.com/lpolovets/status/816117631572807680"></p>
 
 </div>
 </div>
