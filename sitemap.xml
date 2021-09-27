@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://ronaldo.tech/pytorch/basics/2020/05/23/Tensores.html</loc>
+<lastmod>2020-05-23T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://ronaldo.tech/spectrum%20monitoring/profiling/numpy/cython/2021/09/20/Leitura_de_Dados_Bin%C3%A1rios_Comprimidos_Otimiza%C3%A7%C3%A3o_Gradual_em_Python.html</loc>
+<lastmod>2021-09-20T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://ronaldo.tech/about/</loc>
+</url>
+<url>
+<loc>https://ronaldo.tech/</loc>
+</url>
+<url>
+<loc>https://ronaldo.tech/search/</loc>
+</url>
+<url>
+<loc>https://ronaldo.tech/categories/</loc>
+</url>
+</urlset>
